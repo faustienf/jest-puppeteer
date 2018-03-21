@@ -2,18 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/main.jsx'),
+  entry: {
+    demo: path.resolve(__dirname, 'src/demo/demo.jsx'),
+  },
 
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'build'),
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'build/demo'),
   },
 
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-
-  devtool: 'cheap-module-eval-source-map',
 
   module: {
     rules: [
@@ -27,7 +27,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/index.html'),
+      template: path.resolve(__dirname, 'src/demo/index.html'),
       hash: false,
     }),
   ],

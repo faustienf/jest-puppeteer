@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "lint": "eslint --ext .js --ext .jsx src/"
+    "demo:build": "webpack --mode production --config=webpack.config.demo.js",
+    "lint": "eslint --ext .js --ext .jsx src/",
+    "test": "env-cmd test jest",
+    "test:debug": "env-cmd test-debug jest"
   },
   "repository": {
     "type": "git",
@@ -29,14 +32,23 @@
     "babel-env": "^2.4.1",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
+    "env-cmd": "^7.0.0",
     "eslint": "^4.19.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "html-webpack-plugin": "^3.0.7",
+    "jest": "^22.4.2",
+    "jest-environment-node": "^23.0.0-alpha.0",
+    "puppeteer": "^1.2.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1"
+  },
+  "jest": {
+    "globalSetup": "./src/utils/puppeteer_set_up.js",
+    "globalTeardown": "./src/utils/puppeteer_tear_down.js",
+    "testEnvironment": "./src/utils/puppeteer_environment.js"
   }
 }

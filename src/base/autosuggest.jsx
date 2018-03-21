@@ -13,17 +13,17 @@ const getSuggestions = (value, allSuggestions) => {
 const getSuggestionValue = suggestion => suggestion.name;
 
 const renderSuggestion = suggestion => (
-  <div>
+  <div className="test-suggestion">
     {suggestion.name}
   </div>
 );
 
 const theme = {
-  container: 'dropdown',
+  container: 'dropdown test-autosuggest',
   suggestionsContainer: 'dropdown-menu w-100',
   suggestionsContainerOpen: 'show',
   suggestionsList: 'p-0 m-0',
-  suggestionHighlighted: 'text-primary',
+  suggestionHighlighted: 'text-primary test-is-active',
   suggestion: 'dropdown-item',
 };
 
@@ -77,7 +77,7 @@ export class Autosuggest extends React.Component {
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      className: 'form-control',
+      className: 'form-control test-input',
       placeholder: 'Type a programming language',
       value,
       onChange: this.onChange,

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Autosuggest } from './base';
-import languages from './fixtures/languages.json';
+import { Autosuggest } from '../base';
+import languages from '../fixtures/languages.json';
 
 export function App() {
   return (
